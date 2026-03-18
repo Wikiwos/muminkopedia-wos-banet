@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    // 1. JAK WYGLĄDA WYNIKOWY KOD:
+    // Tłumaczymy TS na najnowszy standard JS obsługiwany przez Node.js
+    "target": "esnext",
+
+    // 2. JAK ZARZĄDZAMY IMPORTAMI:
+    // Mówimy kompilatorowi: "Nasz Node.js korzysta z nowoczesnych modułów ESM (import/export)".
+    "module": "nodenext",
+
+    // 3. ORGANIZACJA FOLDERÓW:
+    // Skąd bierzemy nasz czysty kod TypeScript...
+    "rootDir": "./src",
+    // ...i dokąd wrzucamy gotowy, skompilowany kod JavaScript.
+    "outDir": "./dist",
+
+    // 4. BEZPIECZEŃSTWO I JAKOŚĆ KODU:
+    // "Surowy Strażnik": zapobiega błędom na serwerach Linux, pilnując wielkości liter w nazwach plików.
+    "forceConsistentCasingInFileNames": true,
+    // "Surowy Nauczyciel": włącza rygorystyczne sprawdzanie typów (np. chroni przed null/undefined).
+    "strict": true,
+
+    // 5. OPTYMALIZACJA I ZGODNOŚĆ:
+    // Magiczny klej, który pozwala bezbłędnie importować starsze biblioteki (CommonJS) do nowego kodu (ESM).
+    "esModuleInterop": true,
+    // Przyspiesza kompilację: TypeScript nie będzie tracił czasu na sprawdzanie typów w cudzym kodzie w node_modules.
+    "skipLibCheck": true,
+
+    // 6. Aby można było importować pliki Json
+    "resolveJsonModule": true
+  },
+
+  // 6. KTÓRE PLIKI UWZGLĘDNIAĆ:
+  // Kompiluj wszystko wewnątrz folderu src/ i jego podfolderach.
+  "include": ["src/**/*"],
+
+  // 7. CZEGO UNIKAĆ:
+  // Nie dotykaj folderu node_modules ani plików testowych (np. user.spec.ts).
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
