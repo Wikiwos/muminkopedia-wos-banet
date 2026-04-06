@@ -17,7 +17,6 @@ app.get("/", (req, res) => {
     res.json({ message: "API Express + TypeScript działa!" });
 });
 
-// 🔥 NOWE — inicjalizacja bazy
 async function initDatabase() {
     const db = await connectDB();
     await createCollections(db);
