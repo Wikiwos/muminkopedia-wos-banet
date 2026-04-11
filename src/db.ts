@@ -4,8 +4,10 @@ import { ArtifactModel } from "./models/artifact-model";
 
 export const dbName = "muminkopedia";
 
+// nawiązanie połączenia z mongoDB
 export const connectDB = async (): Promise<void> => {
     try {
+        // Pobieramy mongoURI z pliku .env
         const mongoURI = process.env.MONGO_URI;
 
         if (!mongoURI) {
