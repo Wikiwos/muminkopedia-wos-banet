@@ -3,10 +3,17 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
-import dotenv from "dotenv";
+import fs from 'fs';
+import characters from "./routes/character-routes";
 
-// załadowuje dane z pliku .env
-dotenv.config();
+// załadowuje dane z pliku .env, jeżeli on nie istnieje to informuje użytkownika
+if (!fs.existsSync('.env')) {
+    console.log('Plik .env nie istnieje, zatrzymywanie aplikacji...');
+    process.exit(1)
+} else {
+    process.loadEnvFile(".env")
+    console.log("Pomyślnie załadowano dane z pliku .env")
+}
 
 // utworzenie instancji aplikacji Express
 const app = express();
@@ -20,5 +27,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.get("/", (req, res) => {
     res.json({ message: "API Muminkopedii działa! 🌲" });
 });
+
+app.use("/characters", characters)
 
 export default app;

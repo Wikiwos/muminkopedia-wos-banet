@@ -3,7 +3,7 @@
 import app from './app';
 import { connectDB, createCollections, seedDatabase } from "./db";
 
-// użyj portu podanego w `.env`, a jeżeli go nie ma, to użyj portu 3000
+// użyj portu podanego w .env, czyli 5000
 const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {
@@ -28,4 +28,10 @@ const startServer = async () => {
     }
 }
 
-startServer();
+startServer()
+
+// wciśnięcie ctrl+z powoduje zapauzowanie procesu, co powoduje zawieszenie nodejs i wymuszenia ręcznego zakończenia procesu.
+// zamiast tego można ustawić to co robi ctrl+c (czyli zwykłe zakończenie procesu) również na ctrl+z, co temu zapobiegnie:
+process.on('SIGTSTP', () => {
+    process.exit(1)
+})

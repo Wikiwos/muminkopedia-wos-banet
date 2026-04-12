@@ -1,0 +1,10 @@
+@baseUrl = http://localhost:5000
+
+### GET request to root
+GET {{baseUrl}}/
+
+### GET all characters
+GET {{baseUrl}}/characters
+
+### GET specific character with id
+GET {{baseUrl}}/characters/1
