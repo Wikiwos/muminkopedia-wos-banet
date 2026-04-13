@@ -7,4 +7,4 @@ GET {{baseUrl}}/
 GET {{baseUrl}}/characters
 
 ### GET specific character with id
-GET {{baseUrl}}/characters/1
+GET {{baseUrl}}/characters/69dabd112e14b644118cddee
