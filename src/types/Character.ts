@@ -1,4 +1,4 @@
-export interface Character extends Document {
+export interface Character {
     name: string,
     description: string,
     species: string,

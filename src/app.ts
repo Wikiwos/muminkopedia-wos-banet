@@ -28,6 +28,7 @@ app.get("/", (req, res) => {
     res.json({ message: "API Muminkopedii działa! 🌲" });
 });
 
+// route mounting dla Characters poprzez Router
 app.use("/characters", characters)
 
 export default app;
