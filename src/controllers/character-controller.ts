@@ -11,7 +11,8 @@ export async function getCharacters(req: Request, res: Response): Promise<void> 
         // Controller serwuje dane frontendowi
         res.status(200).json(characters)
     } catch (err) {
-        res.status(500).json({error: `Nie udało się załadować postaci: ${err}`})
+        const errorMessage = err instanceof Error ? err.message : "Nieznany błąd"
+        res.status(400).json({error: `Nie udało się załadować postaci: ${errorMessage}`})
     }
 }
 
@@ -22,7 +23,8 @@ export async function getCharacterByID(req: Request, res: Response): Promise<voi
         const character = await fetchCharacterByID(id)
         res.status(200).json(character)
     } catch (err) {
-        res.status(500).json({error: `Nie udało się załadować postaci: ${err}`})
+        const errorMessage = err instanceof Error ? err.message : "Nieznany błąd"
+        res.status(400).json({error: `Nie udało się załadować postaci: ${errorMessage}`})
     }
 }
 
