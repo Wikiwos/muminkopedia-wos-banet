@@ -5,6 +5,7 @@ import cors from "cors";
 import path from "path";
 import fs from 'fs';
 import characters from "./routes/character-routes";
+import artifacts from "./routes/artifact-routes"
 
 // załadowuje dane z pliku .env, jeżeli on nie istnieje to informuje użytkownika
 if (!fs.existsSync('.env')) {
@@ -30,5 +31,7 @@ app.get("/", (req, res) => {
 
 // route mounting dla Characters poprzez Router
 app.use("/characters", characters)
+
+app.use("/artifacts", artifacts)
 
 export default app;

@@ -1,7 +1,6 @@
 import {Request, Response} from "express"
 import {addCharacter, fetchCharacterByID, fetchCharacters} from "../services/character-service";
 
-
 // GET
 export async function getCharacters(req: Request, res: Response): Promise<void> {
     try {
