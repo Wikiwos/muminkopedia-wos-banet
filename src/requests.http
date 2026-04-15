@@ -19,3 +19,7 @@ Content-Type: application/json
   "species": "Snork",
   "isHibernating": true
 }
+
+
+### GET all artifacts
+GET {{baseUrl}}/artifacts
