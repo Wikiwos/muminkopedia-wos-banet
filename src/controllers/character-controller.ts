@@ -1,6 +1,8 @@
 import {Request, Response} from "express"
-import {fetchCharacterByID, fetchCharacters} from "../services/character-service";
+import {addCharacter, fetchCharacterByID, fetchCharacters} from "../services/character-service";
 
+
+// GET
 export async function getCharacters(req: Request, res: Response): Promise<void> {
     try {
         // Controller prosi Service o przygotowanie danych
@@ -21,5 +23,20 @@ export async function getCharacterByID(req: Request, res: Response): Promise<voi
         res.status(200).json(character)
     } catch (err) {
         res.status(500).json({error: `Nie udało się załadować postaci: ${err}`})
+    }
+}
+
+
+// POST
+export async function postCharacter(req: Request, res: Response): Promise<void> {
+    try {
+        const {name, description, species, isHibernating} = req.body
+
+        const newCharacter = await addCharacter({name, description, species, isHibernating})
+
+        res.status(201).json({message: "Dodano nową postać", value: newCharacter})
+    } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : "Nieznany błąd"
+        res.status(400).json({error: `Nie udało się dodać postaci: ${errorMessage}`})
     }
 }

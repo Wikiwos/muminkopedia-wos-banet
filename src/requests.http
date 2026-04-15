@@ -8,3 +8,14 @@ GET {{baseUrl}}/characters
 
 ### GET specific character with id
 GET {{baseUrl}}/characters/69dabd112e14b644118cddee
+
+### POST new character
+POST {{baseUrl}}/characters
+Content-Type: application/json
+
+{
+  "name": "snork1",
+  "description": "new snork character",
+  "species": "Snork",
+  "isHibernating": true
+}
