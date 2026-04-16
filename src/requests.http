@@ -3,6 +3,8 @@
 ### GET request to root
 GET {{baseUrl}}/
 
+
+
 ### GET all characters
 GET {{baseUrl}}/characters
 
@@ -21,6 +23,7 @@ Content-Type: application/json
 }
 
 
+
 ### GET all artifacts
 GET {{baseUrl}}/artifacts
 
@@ -33,3 +36,8 @@ Content-Type: application/json
   "name": "nowy artefakt",
   "description": "nowy opis artefaktu"
 }
+
+
+
+### GET all locations
+GET {{baseUrl}}/locations
