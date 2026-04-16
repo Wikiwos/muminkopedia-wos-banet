@@ -23,3 +23,13 @@ Content-Type: application/json
 
 ### GET all artifacts
 GET {{baseUrl}}/artifacts
+
+
+### PATCH an artifact
+PATCH {{baseUrl}}/artifacts/69dabd112e14b644118cddf3
+Content-Type: application/json
+
+{
+  "name": "nowy artefakt",
+  "description": "nowy opis artefaktu"
+}
