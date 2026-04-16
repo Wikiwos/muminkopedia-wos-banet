@@ -6,6 +6,7 @@ import path from "path";
 import fs from 'fs';
 import characters from "./routes/character-routes";
 import artifacts from "./routes/artifact-routes"
+import locations from "./routes/location-routes"
 
 // załadowuje dane z pliku .env, jeżeli on nie istnieje to informuje użytkownika
 if (!fs.existsSync('.env')) {
@@ -29,9 +30,9 @@ app.get("/", (req, res) => {
     res.json({ message: "API Muminkopedii działa! 🌲" });
 });
 
-// route mounting dla Characters poprzez Router
+// route mounting dla Characters, Artifacts, Locations oraz Relationships poprzez Router
 app.use("/characters", characters)
-
 app.use("/artifacts", artifacts)
+app.use("/locations", locations)
 
 export default app;
