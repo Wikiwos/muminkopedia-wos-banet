@@ -7,6 +7,7 @@ import fs from 'fs';
 import characters from "./routes/character-routes";
 import artifacts from "./routes/artifact-routes"
 import locations from "./routes/location-routes"
+import relationships from "./routes/relationship-routes"
 
 // załadowuje dane z pliku .env, jeżeli on nie istnieje to informuje użytkownika
 if (!fs.existsSync('.env')) {
@@ -34,5 +35,6 @@ app.get("/", (req, res) => {
 app.use("/characters", characters)
 app.use("/artifacts", artifacts)
 app.use("/locations", locations)
+app.use("/relationships", relationships)
 
 export default app;

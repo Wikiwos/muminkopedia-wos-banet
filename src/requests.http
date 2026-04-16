@@ -44,3 +44,8 @@ GET {{baseUrl}}/locations
 
 ### DELETE a location
 DELETE {{baseUrl}}/locations/69dabd112e14b644118cddf5
+
+
+
+### GET all relationships including character details using .populate()
+GET {{baseUrl}}/relationships
