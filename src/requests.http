@@ -41,3 +41,6 @@ Content-Type: application/json
 
 ### GET all locations
 GET {{baseUrl}}/locations
+
+### DELETE a location
+DELETE {{baseUrl}}/locations/69dabd112e14b644118cddf5
